@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.vokrob.foodapp_2.Activity.BaseActivity
-import com.vokrob.foodapp_2.MainActivity
+import com.vokrob.foodapp_2.Activity.Dashboard.MainActivity
 import com.vokrob.foodapp_2.R
 
 class SplashActivity : BaseActivity() {
