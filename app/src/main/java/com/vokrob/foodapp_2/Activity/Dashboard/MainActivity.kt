@@ -33,7 +33,9 @@ fun MainScreen() {
             Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
-        ) {}
+        ) {
+            item { TopBar() }
+        }
     }
 }
 
