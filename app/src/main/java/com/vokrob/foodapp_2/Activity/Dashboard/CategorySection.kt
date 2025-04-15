@@ -1,5 +1,6 @@
 package com.vokrob.foodapp_2.Activity.Dashboard
 
+import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -23,7 +24,9 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat.startActivity
 import coil.compose.AsyncImage
+import com.vokrob.foodapp_2.Activity.ItemsList.ItemsListActivity
 import com.vokrob.foodapp_2.Domain.CategoryModel
 import com.vokrob.foodapp_2.R
 
@@ -73,7 +76,13 @@ fun CategorySection(
                             modifier = Modifier
                                 .weight(1f)
                                 .padding(horizontal = 8.dp),
-                            onItemClick = {}
+                            onItemClick = {
+                                val intent = Intent(context, ItemsListActivity::class.java).apply {
+                                    putExtra("id", categoryModel.Id.toString())
+                                    putExtra("title", categoryModel.Name)
+                                }
+                                startActivity(context, intent, null)
+                            }
                         )
                     }
 
