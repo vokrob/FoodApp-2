@@ -1,5 +1,6 @@
 package com.vokrob.foodapp_2.Activity.ItemsList
 
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -28,7 +29,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat.startActivity
 import coil.compose.AsyncImage
+import com.vokrob.foodapp_2.Activity.DetailEachFood.DetailEachFoodActivity
 import com.vokrob.foodapp_2.Domain.FoodModel
 import com.vokrob.foodapp_2.R
 
@@ -60,7 +63,12 @@ fun Items(item: FoodModel, index: Int) {
                 shape = RoundedCornerShape(10.dp)
             )
             .wrapContentHeight()
-            .clickable {}
+            .clickable {
+                val intent = Intent(context, DetailEachFoodActivity::class.java).apply {
+                    putExtra("object", item)
+                }
+                startActivity(context, intent, null)
+            }
     ) {
         if (isEvenRow) {
             FoodImage(item)
